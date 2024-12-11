@@ -19,6 +19,8 @@ import javax.persistence.Table;
 // necesarias.
 public class Gasto {
 
+    @Id
+    @Column
     private Long id;
 
     private Pasajero pasajero;

@@ -3,13 +3,7 @@ package bbdd.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 // @TODO Realiza todas las anotaciones necesarias en esta clase para que
@@ -20,12 +14,17 @@ import javax.persistence.Table;
 // necesarias.
 
 @Entity
+@Table(name = "pasajero")
 public class Pasajero {
     @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Gasto> gastos = new HashSet<>();
 
     public Pasajero() {
